@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+
+<htlm lang="en-US">
+    <!-------- Head ---------->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initital-scale=1.0">
+        <title> Luigi's Mansion 3 Scarescraper </title>
+        <link rel="stylesheet" href="style.css">
+        
+    </head>
+
+    <!--------------- Body ---------------->
+    <body>
+        
+        <main>
+            <h1>
+                Luigi's Mansion 3 Scarescraper Guide
+                <span class="h3-style">Rare Ghosts Probability</span>
+            </h1>
+            <!--------------- Navigation ---------------->
+            <div class="navbar">
+                <a href="LM3_Scarescraper.html">Home</a>
+                <a href="mission.html" target="_blank">Missions</a>
+                <a href="rare_ghosts.html" target="_blank">Rare Ghosts</a>
+            </div>
+
+            <!------------------ Body --------------------->
+            <div>
+                <p>
+                    Instructions:
+                    <ol>
+                        <li>Determine the amount of players at 4:59.</li>
+                        <li>Look at the denominator of the ghost objective (ie., 0/4)</li>
+                        <li>Enter in the properties as instructed.</li>
+                        <li>
+                            After 5F has finished, look at the table and determine what ghost
+                            you got from the group. <br>Do the same for 10F and 15F.
+                        </li>
+                    </ol>
+                </p>
+                <!-- Table -->
+                <table>
+                    <thead>
+                        <!-- Header -->
+                        <tr>
+                            <th>Floor</th>
+                            <th>Number of Ghosts</th>
+                            <th>Number of Players</th>
+                            <th>Ghost Got</th>
+                        </tr>
+                    </thead>
+                    <!-- Table Sections -->
+                    <tbody>
+                        <!-- Row 1 -->
+                        <tr>
+                            <td>5F</td>
+                            <td>
+                                <select id="ghosts-5f" disabled onchange="enableGroupDropdown('5f')">
+                                    <option value="" selected disabled>Select Number of Ghosts</option>
+                                    <!-- Options will be dynamically updated -->
+                                </select>
+                            </td>
+                            <td>
+                                <select id="players-5f" onchange="enableGhostDropdown('5f')">
+                                    <option value="" selected disabled>Select Players</option>
+                                    <option value="1">1 Player</option>
+                                    <option value="2">2 Players</option>
+                                    <option value="3">3 Players</option>
+                                    <option value="4">4 Players</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="groups-5f" disabled onchange="enableNextFloor('10f')">
+                                    <option value="" selected disabled>Select Group</option>
+                                    <option value="A">Group A</option>
+                                    <option value="B">Group B</option>
+                                    <option value="C">Group C</option>
+                                    <option value="c">Group c</option>
+                                    <option value="D">Group D</option>
+                                    <option value="E">Group E</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <!-- Row 2 -->
+                        <tr>
+                            <td>10F</td>
+                            <td>
+                                <select id="ghosts-10f" disabled onchange="enableGroupDropdown('10f')">
+                                    <option value="" selected disabled>Select Number of Ghosts</option>
+                                    <!-- Options will be dynamically updated -->
+                                </select>
+                            </td>
+                            <td>
+                                <select id="players-10f" disabled onchange="enableGhostDropdown('10f')">
+                                    <option value="" selected disabled>Select Players</option>
+                                    <option value="1">1 Player</option>
+                                    <option value="2">2 Players</option>
+                                    <option value="3">3 Players</option>
+                                    <option value="4">4 Players</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="groups-10f" disabled onchange="enableNextFloor('15f')">
+                                    <option value="" selected disabled>Select Group</option>
+                                    <option value="A">Group A</option>
+                                    <option value="B">Group B</option>
+                                    <option value="C">Group C</option>
+                                    <option value="c">Group c</option>
+                                    <option value="D">Group D</option>
+                                    <option value="E">Group E</option>
+                                </select>
+                            </td>
+                        </tr>
+
+                        <!-- Row 3 -->
+                        <tr>
+                            <td>15F</td>
+                            <td>
+                                <select id="ghosts-15f" disabled onchange="enableGroupDropdown('15f')">
+                                    <option value="" selected disabled>Select Number of Ghosts</option>
+                                    <!-- Options will be dynamically updated -->
+                                </select>
+                            </td>
+                            <td>
+                                <select id="players-15f" disabled onchange="enableGhostDropdown('15f')">
+                                    <option value="" selected disabled>Select Players</option>
+                                    <option value="1">1 Player</option>
+                                    <option value="2">2 Players</option>
+                                    <option value="3">3 Players</option>
+                                    <option value="4">4 Players</option>
+                                </select>
+                            </td>
+                            <td>
+                                <select id="groups-15f" disabled>
+                                    <option value="" selected disabled>Select Group</option>
+                                    <option value="A">Group A</option>
+                                    <option value="B">Group B</option>
+                                    <option value="C">Group C</option>
+                                    <option value="c">Group c</option>
+                                    <option value="D">Group D</option>
+                                    <option value="E">Group E</option>
+                                </select>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p id="prerequisite">To Do: Select the number of players for 5F.</p>
+
+                <!-- Table for if you have a chance getting the ghost -->
+                <table>
+                    <thead>
+                        <tr>
+                        <th colspan="7">Ghost You Can Get / You Got</th>
+                        </tr>
+                        <tr>
+                            <th>5F</th>
+                            <td>Group A</td>
+                            <td>Group B</td>
+                            <td>Group C</td>
+                            <td>Group c</td>
+                            <td>Group D</td>
+                            <td>Group E</td>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>10F</th>
+                            <td>Group A</td>
+                            <td>Group B</td>
+                            <td>Group C</td>
+                            <td>Group c</td>
+                            <td>Group D</td>
+                            <td>Group E</td>
+                        </tr>
+                    </thead>
+                    <thead>
+                        <tr>
+                            <th>15F</th>
+                            <td>Group A</td>
+                            <td>Group B</td>
+                            <td>Group C</td>
+                            <td>Group c</td>
+                            <td>Group D</td>
+                            <td>Group E</td>
+                        </tr>
+                    </thead>
+                </table>
+
+                <script>
+                    function enableGhostDropdown(floor) {
+                        const playersDropdown = document.getElementById(`players-${floor}`);
+                        const ghostsDropdown = document.getElementById(`ghosts-${floor}`);
+                        const prerequisiteText = document.getElementById("prerequisite");
+
+                        if (playersDropdown.value) {
+                            ghostsDropdown.disabled = false;
+                            updateGhostOptions(floor);
+                            prerequisiteText.textContent = `To Do: Select the number of ghosts for ${floor.toUpperCase()}.`;
+                        }
+                    }
+
+                    function updateGhostOptions(floor) {
+                        const playersDropdown = document.getElementById(`players-${floor}`);
+                        const ghostsDropdown = document.getElementById(`ghosts-${floor}`);
+
+                        // Clear existing options
+                        ghostsDropdown.innerHTML = "";
+
+                        // Get the selected number of players
+                        const players = parseInt(playersDropdown.value);
+
+                        // Define the ghost ranges based on players
+                        let ghostOptions = [];
+                        if (floor === '5f') {
+                            ghostOptions = players === 1 ? [3, 4, 5, 6, 8] : 
+                                        players === 2 ? [4, 5, 6, 7, 8] : 
+                                        players === 3 ? [4, 5, 6, 7, 8] : [4, 5, 6, 7, 9];
+                        } else if (floor === '10f') {
+                            ghostOptions = players === 1 ? [4, 5, 6, 7, 8, 9] : 
+                                        players === 2 ? [4, 5, 6, 7, 8, 9] : 
+                                        players === 3 ? [4, 5, 6, 7, 8, 9, ] : [6, 7, 8, 9, 10, 11];
+                        }else if (floor === '15f') {
+                            ghostOptions = players === 1 ? [5, 6, 7, 8, 9, 10] : 
+                                        players === 2 ? [6, 7, 8, 9, 10] : 
+                                        players === 3 ? [6, 7, 8, 9, 10] : [6, 7, 8, 9, 10, 11, 12, 13];
+                        }
+
+                        // Add the new options
+                        ghostOptions.forEach(ghost => {
+                            const option = document.createElement("option");
+                            option.value = ghost;
+                            option.textContent = ghost;
+                            ghostsDropdown.appendChild(option);
+                        });
+                    }
+
+                    function enableGroupDropdown(floor) {
+                        const ghostsDropdown = document.getElementById(`ghosts-${floor}`);
+                        const groupsDropdown = document.getElementById(`groups-${floor}`);
+                        const prerequisiteText = document.getElementById("prerequisite");
+
+                        if (ghostsDropdown.value) {
+                            groupsDropdown.disabled = false;
+                            prerequisiteText.textContent = `To Do: Select the group for ${floor.toUpperCase()}.`;
+                        }
+                    }
+
+                    function enableNextFloor(nextFloor) {
+                        const nextPlayersDropdown = document.getElementById(`players-${nextFloor}`);
+                        const prerequisiteText = document.getElementById("prerequisite");
+
+                        nextPlayersDropdown.disabled = false;
+                        prerequisiteText.textContent = `To Do: Select the number of players for ${nextFloor.toUpperCase()}.`;
+                    }
+                </script>
+            </div>
+        </main>
+    </body>
+
+    <!--------------- Footer ---------------->
+    <footer>
+        <p>
+            Disclaimer: This project is not involved with Nintendo. It is fully intended for the 
+            Scarescraper community discord which you can find here: 
+            <a href="https://discord.gg/tuBCDHYQwG" target="_blank">Scarescraper Server</a>.
+
+            <br>All data and graphs are all credited to Josh589.
+            <br>Discord links: CalebM#8913 / Josh589#9011.<br>
+            <a href="index.html">Home</a>
+            <a href="mission.html">Missions</a>
+            <a href="rare_ghosts.html">Rare Ghosts</a>
+        </p>
+    </footer>
+</htlm>
